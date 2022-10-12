@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -20,14 +20,12 @@ function Login() {
     }
   };
 
+  props.funcNav(false);
+
   if (submitted) {
     return <Navigate to="/episodes"/>;
   }
 
- /*useEffect(() => {
-    localStorage.setItem('Username', JSON.stringify(username))
-  }, [username]);*/
-  
   const errorMessage = () => {
     return (
       <div
